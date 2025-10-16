@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización E-commerce Shopify</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            border-bottom: 4px solid #5C6AC4;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            color: #5C6AC4;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .info-item strong {
+            display: block;
+            color: #5C6AC4;
+            margin-bottom: 5px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        
+        .price-box {
+            background: linear-gradient(135deg, #5C6AC4 0%, #4a5ab3 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .price-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+        
+        .price-box .amount {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .list-included, .list-excluded {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .list-included li, .list-excluded li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .list-included li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .list-excluded li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .costs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .costs-table th, .costs-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .costs-table th {
+            background: #f8f9fa;
+            color: #5C6AC4;
+            font-weight: 600;
+        }
+        
+        .note-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .note-box strong {
+            color: #856404;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #ecf0f1;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .terms {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        
+        .terms h3 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>COTIZACIÓN DE SERVICIOS</h1>
+            <p>Desarrollo de Tienda en Línea - Shopify</p>
+        </div>
+        
+        <div class="info-grid">
+            <div class="info-item">
+                <strong>Fecha de Cotización</strong>
+                <span id="date"></span>
+            </div>
+            <div class="info-item">
+                <strong>Vigencia</strong>
+                30 días naturales
+            </div>
+            <div class="info-item">
+                <strong>Proyecto</strong>
+                E-commerce 50 productos
+            </div>
+            <div class="info-item">
+                <strong>Plataforma</strong>
+                Shopify
+            </div>
+        </div>
+        
+        <div class="price-box">
+            <h3>Inversión Total del Desarrollo</h3>
+            <div class="amount">$800 USD</div>
+            <p>Pago único por desarrollo completo</p>
+        </div>
+        
+        <div class="section">
+            <h2>Servicios Incluidos</h2>
+            <ul class="list-included">
+                <li>Configuración completa de tienda Shopify</li>
+                <li>Instalación y personalización básica de tema (gratuito o premium básico)</li>
+                <li>Carga de hasta 50 productos con información proporcionada por el cliente</li>
+                <li>Configuración de categorías y colecciones</li>
+                <li>Integración de métodos de pago estándar (PayPal, tarjetas, etc.)</li>
+                <li>Configuración de opciones de envío</li>
+                <li>Páginas legales básicas (términos, privacidad, devoluciones)</li>
+                <li>Optimización básica para dispositivos móviles</li>
+                <li>Configuración de SEO básico</li>
+                <li>Tutorial de uso de la plataforma (1 hora)</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>No Incluye</h2>
+            <ul class="list-excluded">
+                <li>Diseño personalizado o desarrollo de tema custom</li>
+                <li>Fotografía profesional de productos</li>
+                <li>Redacción o traducción de descripciones de productos</li>
+                <li>Desarrollo de funcionalidades personalizadas o apps</li>
+                <li>Integraciones complejas con sistemas externos (ERP, CRM, etc.)</li>
+                <li>Estrategia de marketing digital o publicidad</li>
+                <li>Gestión de redes sociales</li>
+                <li>Mantenimiento mensual posterior al lanzamiento</li>
+                <li>Capacitación adicional (se cotiza por separado)</li>
+            </ul>
+        </div>
+        
+        <div class="note-box">
+            <strong>Importante:</strong> El cliente deberá proporcionar todo el contenido necesario incluyendo: imágenes de productos en buena resolución, descripciones, precios, políticas comerciales y logotipo en formato vectorial o alta resolución.
+        </div>
+        
+        <div class="section">
+            <h2>Costos Adicionales Mensuales</h2>
+            <p style="margin-bottom: 15px;">Estos costos NO están incluidos en el desarrollo y son responsabilidad del cliente:</p>
+            <table class="costs-table">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Proveedor</th>
+                        <th>Costo Mensual (USD)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Plan Shopify Basic</strong><br><small>Recomendado para iniciar</small></td>
+                        <td>Shopify</td>
+                        <td>$39/mes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dominio personalizado</strong><br><small>(tutienda.com)</small></td>
+                        <td>Registrador de dominios</td>
+                        <td>$1-2/mes<br><small>(~$12-24/año)</small></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Total Estimado Mensual</strong></td>
+                        <td><strong>$40-41/mes</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 15px; font-size: 14px; color: #666;">*Precios aproximados sujetos a cambios por parte de los proveedores.</p>
+        </div>
+        
+        <div class="terms">
+            <h3>Términos y Condiciones</h3>
+            <p><strong>Forma de Pago:</strong> 50% al inicio del proyecto, 50% al finalizar y antes de la entrega final.</p>
+            <p><strong>Tiempo de Entrega:</strong> 15-20 días hábiles a partir de la recepción del anticipo y todos los materiales necesarios.</p>
+            <p><strong>Garantía:</strong> 30 días de soporte técnico sin costo para corrección de errores relacionados con el desarrollo realizado.</p>
+            <p><strong>Revisiones:</strong> Se incluyen hasta 2 rondas de ajustes menores. Cambios sustanciales fuera del alcance original se cotizarán por separado.</p>
+        </div>
+        
+        <div class="footer">
+            <p>Para aceptar esta cotización o resolver dudas, favor de contactarnos.</p>
+            <p style="margin-top: 20px; font-size: 12px;">Esta cotización es válida por 30 días a partir de la fecha de emisión.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Establecer la fecha actual
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('date').textContent = today.toLocaleDateString('es-MX', options);
+    </script>
+</body>
+</html>
