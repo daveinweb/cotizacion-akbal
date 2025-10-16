@@ -25,12 +25,58 @@
             background: white;
             padding: 50px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .header {
             border-bottom: 4px solid #5C6AC4;
             padding-bottom: 20px;
             margin-bottom: 40px;
+            animation: slideInLeft 0.8s ease-out;
         }
         
         .header h1 {
@@ -46,7 +92,14 @@
         
         .section {
             margin-bottom: 35px;
+            animation: slideInUp 0.8s ease-out;
+            animation-fill-mode: both;
         }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
         
         .section h2 {
             color: #2c3e50;
@@ -67,7 +120,14 @@
             background: #f8f9fa;
             padding: 15px;
             border-radius: 5px;
+            animation: slideInUp 0.6s ease-out;
+            animation-fill-mode: both;
         }
+        
+        .info-item:nth-child(1) { animation-delay: 0.1s; }
+        .info-item:nth-child(2) { animation-delay: 0.2s; }
+        .info-item:nth-child(3) { animation-delay: 0.3s; }
+        .info-item:nth-child(4) { animation-delay: 0.4s; }
         
         .info-item strong {
             display: block;
@@ -84,6 +144,8 @@
             border-radius: 8px;
             text-align: center;
             margin: 30px 0;
+            animation: slideInUp 0.8s ease-out 0.5s;
+            animation-fill-mode: both;
         }
         
         .price-box h3 {
@@ -108,7 +170,30 @@
             padding-left: 30px;
             position: relative;
             border-bottom: 1px solid #ecf0f1;
+            animation: slideInRight 0.5s ease-out;
+            animation-fill-mode: both;
         }
+        
+        .list-included li:nth-child(1) { animation-delay: 0.1s; }
+        .list-included li:nth-child(2) { animation-delay: 0.15s; }
+        .list-included li:nth-child(3) { animation-delay: 0.2s; }
+        .list-included li:nth-child(4) { animation-delay: 0.25s; }
+        .list-included li:nth-child(5) { animation-delay: 0.3s; }
+        .list-included li:nth-child(6) { animation-delay: 0.35s; }
+        .list-included li:nth-child(7) { animation-delay: 0.4s; }
+        .list-included li:nth-child(8) { animation-delay: 0.45s; }
+        .list-included li:nth-child(9) { animation-delay: 0.5s; }
+        .list-included li:nth-child(10) { animation-delay: 0.55s; }
+        
+        .list-excluded li:nth-child(1) { animation-delay: 0.1s; }
+        .list-excluded li:nth-child(2) { animation-delay: 0.15s; }
+        .list-excluded li:nth-child(3) { animation-delay: 0.2s; }
+        .list-excluded li:nth-child(4) { animation-delay: 0.25s; }
+        .list-excluded li:nth-child(5) { animation-delay: 0.3s; }
+        .list-excluded li:nth-child(6) { animation-delay: 0.35s; }
+        .list-excluded li:nth-child(7) { animation-delay: 0.4s; }
+        .list-excluded li:nth-child(8) { animation-delay: 0.45s; }
+        .list-excluded li:nth-child(9) { animation-delay: 0.5s; }
         
         .list-included li:before {
             content: "✓";
@@ -190,6 +275,105 @@
             .container {
                 box-shadow: none;
                 padding: 30px;
+            }
+            * {
+                animation: none !important;
+            }
+        }
+        
+        /* Mobile Breakpoints */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 25px 20px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .price-box {
+                padding: 25px 20px;
+            }
+            
+            .price-box .amount {
+                font-size: 36px;
+            }
+            
+            .section h2 {
+                font-size: 18px;
+            }
+            
+            .costs-table {
+                font-size: 14px;
+            }
+            
+            .costs-table th,
+            .costs-table td {
+                padding: 10px 8px;
+            }
+            
+            .terms {
+                padding: 15px;
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .header p {
+                font-size: 13px;
+            }
+            
+            .price-box .amount {
+                font-size: 32px;
+            }
+            
+            .price-box h3 {
+                font-size: 16px;
+            }
+            
+            .price-box p {
+                font-size: 14px;
+            }
+            
+            .list-included li,
+            .list-excluded li {
+                font-size: 14px;
+                padding: 10px 0 10px 25px;
+            }
+            
+            .costs-table {
+                font-size: 12px;
+            }
+            
+            .costs-table th,
+            .costs-table td {
+                padding: 8px 5px;
+            }
+            
+            .note-box {
+                padding: 12px;
+                font-size: 13px;
+            }
+            
+            .footer {
+                font-size: 13px;
             }
         }
     </style>
@@ -307,7 +491,6 @@
     </div>
     
     <script>
-        // Establecer la fecha actual
         const today = new Date();
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('date').textContent = today.toLocaleDateString('es-MX', options);
